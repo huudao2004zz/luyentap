@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS CodeLean</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="shaJ8C-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcpl+c8xmyTe9GYgll9ab9psu" crossorigin="anonymous">
+    <script data-require="angular.js@l.0.x" src="http://code.angularjs.org/1.0.7/angular.min.js"data-semver="l.0.7"></script>
+    <script src="jsonload.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div ng-controller="jsonCtrl">
+            <h1>Đăng kí tại đây</h1>
+        <div class="mb-3">
+            <label for="empName" class="form-label">Tên của bạn là gì nhỉ:</label>
+            <input type="text" class="form-control" id="empName" ng-model="empName" placeholder="nhập tên chỗ này nhé -.-">
+        </div>
+        <div class="mb-3">
+            <label for="empName" class="form-label">Thành phố hoặc nước bạn muốn đến :</label>
+            <input type="text" class="form-control" id="empCity" ng-model="empCity" placeholder="Enter your dream ! ">
+        </div>
+       <button class="btn" ng-click="addEmp()" style="background-color:rgb(48, 75, 48) ; color: aliceblue;"> ĐĂNG KÍ ! <i class="icon-plus"></i></button>
+        <br/> <br/>
+        <h3>Những người may mắn trúng giải được đi du lịch các nước trên thế giới</h3>
+        <h5>Còn chần chừ gì nữa hãy đăng kí ngay đi nào !</h5>
+        <table class="table table-striped">
+            <thead>
+                <th>Tên</th>
+                <th>Thành phố</th>
+            </thead>
+            <tr ng-repeat="resource in employees | filter:seach">
+                <td>{{resource.name}}</td>
+                <td>{{resource.city}}</td>
+            </tr>
+        </table>
+        </div>
+        
+    <a href="../index.html">BACK HOME</a>
+</body>
+</html>
